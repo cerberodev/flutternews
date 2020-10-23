@@ -10,10 +10,10 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        endDrawer: Drawer(),
-        appBar: AppBar(
-          title: Text('Flutter News'),
-        ),
+        //endDrawer: Drawer(),
+        //appBar: AppBar(
+        //  title: Text('Flutter News'),
+        //),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(top: 10),
@@ -31,7 +31,6 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  color: Colors.red,
                   height: 300,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,

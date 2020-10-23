@@ -7,21 +7,23 @@ class NewsEs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 150,
+      height: 120,
       child: Card(
         elevation: 4,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25),
         ),
-        margin: EdgeInsets.all(15),
+        margin: EdgeInsets.only(
+          left: 15,
+          right: 15,
+          top: 15,
+        ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(25),
               child: Container(
-                width: 150,
-                height: double.infinity,
                 child: Image.asset(
                   'assets/123.jpg',
                 ),

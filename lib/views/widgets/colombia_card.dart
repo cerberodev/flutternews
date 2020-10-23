@@ -10,7 +10,7 @@ class ColombiaCard extends StatelessWidget {
         print('Tap to button category');
       },
       child: Container(
-        margin: EdgeInsets.all(5),
+        margin: EdgeInsets.all(15),
         child: Stack(
           children: [
             Container(
