@@ -9,7 +9,6 @@ class NewsEs extends StatelessWidget {
       width: double.infinity,
       height: 120,
       child: Card(
-        elevation: 4,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25),
         ),
@@ -21,40 +20,41 @@ class NewsEs extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(25),
-              child: Container(
-                child: Image.asset(
-                  'assets/123.jpg',
-                ),
-              ),
-            ),
             Container(
-              width: 220,
-              child: Padding(
-                padding: EdgeInsets.all(15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      '¿Cuál es la enfermedad que tiene hospitalizado a Ricardo Quevedo? - Caracol Radio',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
-                      ),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 3,
-                    ),
-                    Text(
-                      '2020-10-23T18:16:00Z',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 3,
-                    ),
-                  ],
+              height: 120,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(25),
+                child: Container(
+                  child: Image.asset(
+                    'assets/123.jpg',
+                  ),
                 ),
               ),
             ),
+            SizedBox(width: 5),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    '¿Cuál es la enfermedad que tiene hospitalizado a Ricardo Quevedo? - Caracol Radio',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 4,
+                  ),
+                  Text(
+                    '2020-10-23T18:16:00Z',
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(width: 5),
           ],
         ),
       ),

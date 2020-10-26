@@ -10,7 +10,7 @@ class ColombiaCard extends StatelessWidget {
         print('Tap to button category');
       },
       child: Container(
-        margin: EdgeInsets.all(15),
+        margin: EdgeInsets.only(left: 15, top: 15, bottom: 15),
         child: Stack(
           children: [
             Container(
@@ -25,7 +25,8 @@ class ColombiaCard extends StatelessWidget {
               ),
             ),
             Container(
-              alignment: Alignment.center,
+              padding: EdgeInsets.all(20),
+              alignment: Alignment.bottomLeft,
               height: 300,
               width: 300,
               decoration: BoxDecoration(
@@ -33,15 +34,37 @@ class ColombiaCard extends StatelessWidget {
                   color: Colors.black38),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Mónica Jaramillo publicó foto de su hermosa hermana, para hacerle dedicatoria especial - Pulzo.com',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 3,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Mónica Jaramillo publicó foto de su hermosa hermana, para hacerle dedicatoria especial - Pulzo.com',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 3,
+                    ),
+                    SizedBox(height: 15),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        FlutterLogo(size: 32),
+                        SizedBox(height: 15),
+                        Text(
+                          'Pierre Guillen',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               ),
             )

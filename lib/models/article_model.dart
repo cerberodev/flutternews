@@ -1,9 +1,18 @@
 class Article {
+  Article(
+      {this.title,
+      this.description,
+      this.author,
+      this.content,
+      this.publshedAt,
+      this.urlToImage,
+      this.articleUrl});
+
   String title;
   String author;
-  String descrption;
+  String description;
   String urlToImage;
-  DateTime publishedAt;
+  DateTime publshedAt;
   String content;
   String articleUrl;
 }
