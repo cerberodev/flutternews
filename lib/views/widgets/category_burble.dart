@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CategoryBurble extends StatelessWidget {
-  const CategoryBurble({Key key}) : super(key: key);
+  const CategoryBurble({
+    Key key,
+    this.imageUrl,
+    this.categoryName,
+  }) : super(key: key);
+
+  final String imageUrl, categoryName;
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +16,8 @@ class CategoryBurble extends StatelessWidget {
         print('Tap to button category');
       },
       child: Container(
-        height: 150,
-        width: 120,
+        height: 70,
+        width: 80,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -20,24 +26,23 @@ class CategoryBurble extends StatelessWidget {
             Container(
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(100),
-                child: Image.asset(
-                  'assets/123.jpg',
+                child: Image.network(
+                  imageUrl,
                   fit: BoxFit.cover,
-                  width: 60,
-                  height: 60,
+                  width: 40,
+                  height: 40,
                 ),
               ),
             ),
-            SizedBox(height: 5),
             Container(
               alignment: Alignment.center,
               height: 30,
-              width: 60,
+              width: 70,
               child: Text(
-                'Politica',
+                categoryName,
                 style: TextStyle(
                   color: Colors.blue,
-                  fontSize: 16,
+                  fontSize: 10,
                   fontWeight: FontWeight.w500,
                 ),
               ),
