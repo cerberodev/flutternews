@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
 
 class NewsEs extends StatelessWidget {
-  const NewsEs({Key key}) : super(key: key);
+  const NewsEs({
+    Key key,
+    this.title,
+    this.author,
+    this.urlToImage,
+    this.articleUrl,
+    this.publshedAt,
+  }) : super(key: key);
+
+  final String title;
+  final String author;
+  final String urlToImage;
+  final String articleUrl;
+  final DateTime publshedAt;
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +38,8 @@ class NewsEs extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(25),
                 child: Container(
-                  child: Image.asset(
-                    'assets/123.jpg',
+                  child: Image.network(
+                    urlToImage,
                   ),
                 ),
               ),
@@ -38,7 +51,7 @@ class NewsEs extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    '¿Cuál es la enfermedad que tiene hospitalizado a Ricardo Quevedo? - Caracol Radio',
+                    title,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
