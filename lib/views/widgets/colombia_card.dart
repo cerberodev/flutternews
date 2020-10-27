@@ -4,8 +4,8 @@ import 'package:flutternews/views/article_view.dart';
 class ColombiaCard extends StatelessWidget {
   ColombiaCard({
     @required this.urlToImage,
-    this.title,
     @required this.articleUrl,
+    this.title,
     this.author,
   });
   final String urlToImage, title, articleUrl, author;
@@ -17,6 +17,7 @@ class ColombiaCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => ArticleView(
+              newsTitle: title,
               articleUrl: articleUrl,
             ),
           ),
@@ -31,8 +32,8 @@ class ColombiaCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 child: Image.network(
                   urlToImage,
-                  height: 300,
-                  width: 300,
+                  height: 200,
+                  width: 200,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -40,8 +41,8 @@ class ColombiaCard extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(20),
               alignment: Alignment.bottomLeft,
-              height: 300,
-              width: 300,
+              height: 200,
+              width: 200,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: Colors.black38),
@@ -71,7 +72,7 @@ class ColombiaCard extends StatelessWidget {
                           author,
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 15,
+                            fontSize: 10,
                             fontWeight: FontWeight.w500,
                           ),
                         ),

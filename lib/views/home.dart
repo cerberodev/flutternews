@@ -5,6 +5,7 @@ import 'package:flutternews/helper/data.dart';
 import 'package:flutternews/models/category_model.dart';
 import 'package:flutternews/views/widgets/category_burble.dart';
 import 'package:flutternews/views/widgets/colombia_card.dart';
+import 'package:flutternews/views/widgets/news_es.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key key}) : super(key: key);
@@ -14,36 +15,36 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  //bool _loading;
+  bool _loading;
   var newslist;
   var newscollist;
 
   List<CategoryModel> category = List<CategoryModel>();
 
-  void getNews() async {
-    News news = News();
-    await news.getNews();
-    newslist = news.news;
-    setState(() {
-      //_loading = false;
-    });
-  }
+  //void getNews() async {
+  //  News news = News();
+  //  await news.getNews();
+  //  newslist = news.news;
+  //  setState(() {
+  //    _loading = false;
+  //  });
+  //}
 
   void getNewsColombia() async {
     NewsColombia newsCol = NewsColombia();
     await newsCol.getNewsColombia();
     newscollist = newsCol.newsCol;
     setState(() {
-      //_loading = false;
+      _loading = false;
     });
   }
 
   @override
   void initState() {
-    //_loading = true;
+    _loading = true;
     super.initState();
     category = getCategory();
-    getNews();
+    //getNews();
     getNewsColombia();
   }
 
@@ -55,52 +56,50 @@ class _HomeViewState extends State<HomeView> {
         appBar: AppBar(
           title: Text('Flutter News'),
         ),
-        body:
-            //  _loading
-            //? Center(
-            //    child: FlutterLogo(size: 50),
-            //  )
-            //:
-            SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  height: 70,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: category.length,
-                    itemBuilder: (context, index) {
-                      return CategoryBurble(
-                        imageUrl: category[index].imageUrl,
-                        categoryName: category[index].categoryName,
-                      );
-                    },
+        body: _loading
+            ? Center(
+                child: CupertinoActivityIndicator(),
+              )
+            : SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        height: 70,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: category.length,
+                          itemBuilder: (context, index) {
+                            return CategoryBurble(
+                              imageUrl: category[index].imageUrl,
+                              categoryName: category[index].categoryName,
+                            );
+                          },
+                        ),
+                      ),
+                      Container(
+                        height: 300,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: newscollist.length,
+                          shrinkWrap: true,
+                          physics: ClampingScrollPhysics(),
+                          itemBuilder: (context, index) {
+                            return ColombiaCard(
+                              urlToImage: newscollist[index].urlToImage ?? "",
+                              title: newscollist[index].title ?? "",
+                              articleUrl: newscollist[index].articleUrl ?? "",
+                              author: newscollist[index].author ?? "",
+                            );
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                Container(
-                  height: 300,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: newscollist.length,
-                    shrinkWrap: true,
-                    physics: ClampingScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      return ColombiaCard(
-                        urlToImage: newscollist[index].urlToImage ?? "",
-                        title: newscollist[index].title ?? "",
-                        articleUrl: newscollist[index].articleUrl ?? "",
-                        author: newscollist[index].author ?? "",
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+              ),
       ),
     );
   }
