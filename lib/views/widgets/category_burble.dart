@@ -13,7 +13,12 @@ class CategoryBurble extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('Tap to button category');
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => CategoryBurble(
+                      categoryName: categoryName.toLowerCase(),
+                    )));
       },
       child: Container(
         height: 70,

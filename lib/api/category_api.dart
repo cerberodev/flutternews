@@ -5,7 +5,7 @@ import 'package:flutternews/secret/secret.dart';
 import 'package:http/http.dart' as http;
 
 class CategoryApi {
-  List<Article> news = [];
+  List<Article> newsCategory = [];
 
   Future<void> getNewsCategory(String category) async {
     String url =
@@ -27,7 +27,7 @@ class CategoryApi {
             content: element['content'],
             articleUrl: element['articleUrl'],
           );
-          news.add(article);
+          newsCategory.add(article);
         }
       });
     }

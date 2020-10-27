@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutternews/views/article_view.dart';
 
 class ColombiaCard extends StatelessWidget {
-  const ColombiaCard({Key key}) : super(key: key);
-
+  ColombiaCard({
+    @required this.urlToImage,
+    this.title,
+    @required this.articleUrl,
+    this.author,
+  });
+  final String urlToImage, title, articleUrl, author;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('Tap to button category');
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ArticleView(
+              articleUrl: articleUrl,
+            ),
+          ),
+        );
       },
       child: Container(
         margin: EdgeInsets.only(left: 15, top: 15, bottom: 15),
@@ -16,11 +29,11 @@ class ColombiaCard extends StatelessWidget {
             Container(
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),
-                child: Image.asset(
-                  'assets/123.jpg',
-                  fit: BoxFit.cover,
-                  width: 300,
+                child: Image.network(
+                  urlToImage,
                   height: 300,
+                  width: 300,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -38,7 +51,7 @@ class ColombiaCard extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'Mónica Jaramillo publicó foto de su hermosa hermana, para hacerle dedicatoria especial - Pulzo.com',
+                      title,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -55,10 +68,10 @@ class ColombiaCard extends StatelessWidget {
                         FlutterLogo(size: 32),
                         SizedBox(height: 15),
                         Text(
-                          'Pierre Guillen',
+                          author,
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 20,
+                            fontSize: 15,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
