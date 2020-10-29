@@ -26,6 +26,7 @@ class _ArticleViewState extends State<ArticleView> {
           onWebViewCreated: (WebViewController webViewController) {
             _controller.complete(webViewController);
           },
+          javascriptMode: JavascriptMode.unrestricted,
         ),
       ),
     );

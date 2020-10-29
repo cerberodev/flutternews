@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutternews/views/article_view.dart';
+import 'package:flutternews/ui/views/article_view.dart';
 
 class NewsEs extends StatelessWidget {
-  final String urlToImage, title, description, content, articleUrl;
-
-  NewsEs(
-      {this.urlToImage,
-      this.description,
-      this.title,
-      this.content,
-      @required this.articleUrl});
+  NewsEs({
+    @required this.articleUrl,
+    @required this.urlToImage,
+    this.title,
+  });
+  final String urlToImage, title, articleUrl;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -18,6 +16,7 @@ class NewsEs extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => ArticleView(
+                      newsTitle: title,
                       articleUrl: articleUrl,
                     )));
       },
@@ -43,6 +42,9 @@ class NewsEs extends StatelessWidget {
                   child: Container(
                     child: Image.network(
                       urlToImage,
+                      height: 120,
+                      width: 120,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
@@ -61,11 +63,6 @@ class NewsEs extends StatelessWidget {
                       ),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 4,
-                    ),
-                    Text(
-                      '2020-10-23T18:16:00Z',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
                     ),
                   ],
                 ),

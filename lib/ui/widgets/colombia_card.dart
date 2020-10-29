@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutternews/views/article_view.dart';
+import 'package:flutternews/ui/views/article_view.dart';
 
 class ColombiaCard extends StatelessWidget {
   ColombiaCard({
@@ -24,6 +24,8 @@ class ColombiaCard extends StatelessWidget {
         );
       },
       child: Container(
+        height: 200,
+        width: 200,
         margin: EdgeInsets.only(left: 15, top: 15, bottom: 15),
         child: Stack(
           children: [
@@ -46,30 +48,31 @@ class ColombiaCard extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: Colors.black38),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      title,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 3,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
                     ),
-                    SizedBox(height: 15),
-                    Row(
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
+                  ),
+                  SizedBox(height: 5),
+                  Container(
+                    width: 200,
+                    height: 40,
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         FlutterLogo(size: 32),
-                        SizedBox(height: 15),
                         Text(
                           author,
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 10,
@@ -77,9 +80,9 @@ class ColombiaCard extends StatelessWidget {
                           ),
                         ),
                       ],
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
             )
           ],

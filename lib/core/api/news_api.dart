@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutternews/models/article_model.dart';
+import 'package:flutternews/core/models/article_model.dart';
 import 'package:flutternews/secret/secret.dart';
 import 'package:http/http.dart' as http;
 
@@ -33,13 +33,12 @@ class NewsColombia {
   }
 }
 
-class News {
-  List<Article> news = [];
+class NewsEsApi {
+  List<Article> newsEs = [];
 
-  Future<void> getNews() async {
+  Future<void> getNewsEs() async {
     String url =
-        'http://newsapi.org/v2/top-headlines?country=in&excludeDomains=stackoverflow.com&sortBy=publishedAt&language=en&apiKey=$apiKey';
-
+        'https://newsapi.org/v2/top-headlines?language=es&apiKey=$apiKey';
     var response = await http.get(url);
 
     var jsonData = jsonDecode(response.body);
@@ -56,7 +55,7 @@ class News {
             content: element["content"],
             articleUrl: element["url"],
           );
-          news.add(article);
+          newsEs.add(article);
         }
       });
     }

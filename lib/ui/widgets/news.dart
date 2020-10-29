@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutternews/views/article_view.dart';
+import 'package:flutternews/ui/views/article_view.dart';
 
 class News extends StatelessWidget {
   final String imgUrl, title, desc, content, articleUrl;
@@ -19,6 +19,7 @@ class News extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => ArticleView(
+                      newsTitle: title,
                       articleUrl: articleUrl,
                     )));
       },

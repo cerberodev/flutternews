@@ -1,4 +1,4 @@
-import 'package:flutternews/models/category_model.dart';
+import 'package:flutternews/core/models/category_model.dart';
 
 List<CategoryModel> getCategory() {
   List<CategoryModel> myCategory = List<CategoryModel>();
