@@ -24,6 +24,9 @@ class CategoryApi {
             description: element['description'],
             urlToImage: element['urlToImage'],
             publshedAt: DateTime.parse(element['publshedAt']),
+            // DataTime.utc()
+            // 2020-10-30 10:29:45
+            // DataTime.now()
             content: element['content'],
             articleUrl: element['articleUrl'],
           );
